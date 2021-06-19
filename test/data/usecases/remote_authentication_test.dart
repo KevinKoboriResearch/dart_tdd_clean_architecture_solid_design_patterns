@@ -10,17 +10,33 @@ import 'package:for_dev/data/usecases/usecases.dart';
 import 'package:for_dev/data/http/http.dart';
 
 // bubble test
-// Coupling - Mockito Package
 class HttpClientSpy extends Mock implements HttpClient {}
 
 main() {
-  // Design Pattern "Triple A"
+  // Design Pattern "Triple A" (Arrange, Action, Assert)
   RemoteAuthentication sut;
   HttpClientSpy httpClient;
   String url;
   AuthenticationParams paramns;
 
-  // Arrange
+  Map mockValidData() => {
+        'accessToken': faker.guid.guid(),
+        'name': faker.person.name(),
+      };
+
+  PostExpectation mockRequest() => when(httpClient.request(
+      url: anyNamed('url'),
+      method: anyNamed('method'),
+      body: anyNamed('body')));
+
+  void mockHttpData(Map data) {
+    mockRequest().thenAnswer((_) async => data);
+  }
+
+  void mockHttpError(HttpError error) {
+    mockRequest().thenThrow(error);
+  }
+
   setUp(() {
     httpClient = HttpClientSpy();
     url = faker.internet.httpUrl();
@@ -29,24 +45,12 @@ main() {
       email: faker.internet.email(),
       password: faker.internet.password(),
     );
+    mockHttpData(mockValidData());
   });
 
   test('Should call HttpClient with correct values', () async {
-    // Coupling - Mockito Package
-    when(httpClient.request(
-            url: anyNamed('url'),
-            method: anyNamed('method'),
-            body: anyNamed('body')))
-        .thenAnswer((_) async => {
-              'accessToken': faker.guid.guid(),
-              'name': faker.person.name(),
-            });
-
-    // Action
     await sut.auth(paramns);
 
-    // Assert
-    // Coupling - Mockito Package
     verify(httpClient.request(
       url: url,
       method: 'post',
@@ -58,12 +62,7 @@ main() {
   });
 
   test('Should throw UnexpectedError if HttpClient returns 400', () async {
-    // Coupling - Mockito Package
-    when(httpClient.request(
-            url: anyNamed('url'),
-            method: anyNamed('method'),
-            body: anyNamed('body')))
-        .thenThrow(HttpError.badRequest);
+    mockHttpError(HttpError.badRequest);
 
     final future = sut.auth(paramns);
 
@@ -71,12 +70,7 @@ main() {
   });
 
   test('Should throw UnexpectedError if HttpClient returns 404', () async {
-    // Coupling - Mockito Package
-    when(httpClient.request(
-            url: anyNamed('url'),
-            method: anyNamed('method'),
-            body: anyNamed('body')))
-        .thenThrow(HttpError.notFound);
+    mockHttpError(HttpError.notFound);
 
     final future = sut.auth(paramns);
 
@@ -84,12 +78,7 @@ main() {
   });
 
   test('Should throw UnexpectedError if HttpClient returns 500', () async {
-    // Coupling - Mockito Package
-    when(httpClient.request(
-            url: anyNamed('url'),
-            method: anyNamed('method'),
-            body: anyNamed('body')))
-        .thenThrow(HttpError.serverError);
+    mockHttpError(HttpError.serverError);
 
     final future = sut.auth(paramns);
 
@@ -98,12 +87,7 @@ main() {
 
   test('Should throw InvalidCredentialsError if HttpClient returns 401',
       () async {
-    // Coupling - Mockito Package
-    when(httpClient.request(
-            url: anyNamed('url'),
-            method: anyNamed('method'),
-            body: anyNamed('body')))
-        .thenThrow(HttpError.unauthorized);
+    mockHttpError(HttpError.unauthorized);
 
     final future = sut.auth(paramns);
 
@@ -113,15 +97,10 @@ main() {
   test(
       'Should throw UnexpectedError if HttpClient returns 200 with invalid data',
       () async {
-    // Coupling - Mockito Package
-    when(httpClient.request(
-            url: anyNamed('url'),
-            method: anyNamed('method'),
-            body: anyNamed('body')))
-        .thenAnswer((_) async => {
-              'invalid_key': 'invalid_value',
-              'name': faker.person.name(),
-            });
+    mockHttpData({
+      'invalid_key': 'invalid_value',
+      'name': faker.person.name(),
+    });
 
     final future = sut.auth(paramns);
 
@@ -130,19 +109,11 @@ main() {
 
   test('Should return an account if HttpClient returns 200 with valid data',
       () async {
-    final accessToken = faker.guid.guid();
-    // Coupling - Mockito Package
-    when(httpClient.request(
-            url: anyNamed('url'),
-            method: anyNamed('method'),
-            body: anyNamed('body')))
-        .thenAnswer((_) async => {
-              'accessToken': accessToken,
-              'name': faker.person.name(),
-            });
+    final validData = mockValidData();
+    mockHttpData(validData);
 
     final account = await sut.auth(paramns);
 
-    expect(account.token, accessToken);
+    expect(account.token, validData['accessToken']);
   });
 }
