@@ -110,7 +110,26 @@ main() {
     expect(future, throwsA(DomainError.invalidCredentials));
   });
 
-  test('Should return an account if HttpClient returns 200', () async {
+  test(
+      'Should throw UnexpectedError if HttpClient returns 200 with invalid data',
+      () async {
+    // Coupling - Mockito Package
+    when(httpClient.request(
+            url: anyNamed('url'),
+            method: anyNamed('method'),
+            body: anyNamed('body')))
+        .thenAnswer((_) async => {
+              'invalid_key': 'invalid_value',
+              'name': faker.person.name(),
+            });
+
+    final future = sut.auth(paramns);
+
+    expect(future, throwsA(DomainError.unexpected));
+  });
+
+  test('Should return an account if HttpClient returns 200 with valid data',
+      () async {
     final accessToken = faker.guid.guid();
     // Coupling - Mockito Package
     when(httpClient.request(

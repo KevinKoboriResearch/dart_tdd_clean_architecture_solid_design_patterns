@@ -1,6 +1,6 @@
-import 'package:for_dev/data/models/remote_account_model.dart';
 import 'package:meta/meta.dart';
 
+import '../../data/models/remote_account_model.dart';
 import '../../domain/entities/entities.dart';
 import '../../domain/helpers/helpers.dart';
 import '../../domain/usecases/usecases.dart';

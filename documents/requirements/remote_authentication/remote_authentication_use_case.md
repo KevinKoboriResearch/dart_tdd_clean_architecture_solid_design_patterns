@@ -12,11 +12,11 @@
 > ## Exception - Invalid Data
 1. ✅ system returns an unexpected error message
 
-> ## Exception - Invalid Answer
-1. system returns an unexpected error message
-
 > ## Exception - Server Failure
 1. ✅ system returns an unexpected error message
 
 > ## Exception - Invalid Credentials
 1. ✅ system returns an error message stating that the credentials are wrong
+
+> ## Exception - Invalid Answer
+1. ✅ system returns an unexpected error message
