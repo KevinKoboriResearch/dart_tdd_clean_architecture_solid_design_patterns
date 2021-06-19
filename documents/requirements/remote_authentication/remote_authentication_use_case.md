@@ -19,4 +19,4 @@
 1. ✅ system returns an unexpected error message
 
 > ## Exception - Invalid Credentials
-1. system returns an error message stating that the credentials are wrong
+1. ✅ system returns an error message stating that the credentials are wrong
