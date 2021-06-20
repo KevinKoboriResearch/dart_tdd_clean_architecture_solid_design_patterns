@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../ui/components/component.dart';
+
 class LoginPage extends StatelessWidget {
   const LoginPage({Key key}) : super(key: key);
 
@@ -8,48 +10,72 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Container(
-              child: Image(image: AssetImage('lib/ui/assets/logo.png')),
+            LoginHeader(),
+            SizedBox(
+              height: 32,
             ),
-            Text('Login'.toUpperCase()),
-            Form(
-              child: Column(
-                children: [
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: 'Email',
-                      icon: Icon(Icons.email),
-                    ),
-                    keyboardType: TextInputType.emailAddress,
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: 'Senha',
-                      icon: Icon(Icons.lock),
-                    ),
-                    obscureText: true,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Entrar'.toUpperCase(),
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.person),
-                        SizedBox(
-                          width: 8,
+            Headline1(text: 'Login'),
+            Padding(
+              padding: const EdgeInsets.all(32.0),
+              child: Form(
+                child: Column(
+                  children: [
+                    TextFormField(
+                      decoration: InputDecoration(
+                        labelText: 'Email',
+                        icon: Icon(
+                          Icons.email,
+                          color: Theme.of(context).primaryColorLight,
                         ),
-                        Text('Criar Conta'),
-                      ],
+                      ),
+                      keyboardType: TextInputType.emailAddress,
                     ),
-                  ),
-                ],
+                    SizedBox(height: 8),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        labelText: 'Senha',
+                        icon: Icon(
+                          Icons.lock,
+                          color: Theme.of(context).primaryColorLight,
+                        ),
+                      ),
+                      obscureText: true,
+                    ),
+                    SizedBox(height: 32),
+                    RaisedButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Entrar'.toUpperCase(),
+                      ),
+                    ),
+                    // ElevatedButton(
+                    //   onPressed: () {},
+                    //   child: Text(
+                    //     'Entrar'.toUpperCase(),
+                    //   ),
+                    // ),
+                    FlatButton.icon(
+                      onPressed: () {},
+                      icon: Icon(Icons.person),
+                      label: Text('Criar Conta'),
+                    )
+                    // TextButton(
+                    //   onPressed: () {},
+                    //   child: Row(
+                    //     mainAxisAlignment: MainAxisAlignment.center,
+                    //     children: [
+                    //       Icon(Icons.person),
+                    //       SizedBox(
+                    //         width: 8,
+                    //       ),
+                    //       Text('Criar Conta'),
+                    //     ],
+                    //   ),
+                    // ),
+                  ],
+                ),
               ),
             ),
           ],
