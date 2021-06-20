@@ -4,7 +4,7 @@
 1. ✅ Request with valid http verb (post)
 2. ✅ Pass the content type JSON in the header
 3. ✅ Claim Request with correct body
-4. Ok - 200 and answer with data
+4. ✅ Ok - 200 and answer with data
 5. No content - 204 and answer without data
 
 > ## Errors
