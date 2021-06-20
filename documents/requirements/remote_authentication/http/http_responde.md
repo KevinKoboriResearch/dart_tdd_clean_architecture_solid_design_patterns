@@ -9,7 +9,7 @@
 
 > ## Errors
 1. ✅ Bad request - 400
-2. Unathourized - 401
+2. ✅ Unathourized - 401
 3. Forbidden - 403
 4. Not Found - 404
 5. ✅ Internal server error - 500
