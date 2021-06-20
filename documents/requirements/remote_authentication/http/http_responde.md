@@ -21,4 +21,4 @@
 1. Internal server error - 500
 
 > ## Exception - invalid http verb
-1. Internal server error - 500
+1. ✅ Internal server error - 500
