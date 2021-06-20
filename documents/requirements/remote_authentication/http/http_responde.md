@@ -1,9 +1,14 @@
 # HTTP
 
 > ## Success
+<<<<<<< HEAD
 1. ✅ Request with valid http verb (post)
 2. ✅ Pass the content type JSON in the header
 3. Claim Request with correct body
+=======
+1. Request with valid http verb (post)
+2. Pass the content type JSON in the header
+>>>>>>> c12bb0a734d7344f77b63b91ee056b8e3371e72b
 3. Ok - 200 and answer with data
 4. No content - 204 and answer without data
 
