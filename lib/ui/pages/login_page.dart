@@ -29,7 +29,9 @@ class LoginPage extends StatelessWidget {
                           Icons.email,
                           color: Theme.of(context).primaryColorLight,
                         ),
+                        // errorText: 'error',
                       ),
+                    
                       keyboardType: TextInputType.emailAddress,
                     ),
                     SizedBox(height: 8),
@@ -45,7 +47,7 @@ class LoginPage extends StatelessWidget {
                     ),
                     SizedBox(height: 32),
                     RaisedButton(
-                      onPressed: () {},
+                      onPressed: null,
                       child: Text(
                         'Entrar'.toUpperCase(),
                       ),
