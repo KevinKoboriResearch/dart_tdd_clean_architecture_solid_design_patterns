@@ -1,10 +1,10 @@
 # Login Page
 
 > ## Roles
-1. Fields must start without displaying an error message
-2. Login button should start disabled
+1. ✅ Fields must start without displaying an error message
+2. ✅ Login button should start disabled
 3. After typing something in a field, the error message should only go away if the field is valid
-4. Validate email when user types in field
+4. ✅ Validate email when user types in field
 5. Show error message if email is invalid
 6. Remove error message if email is valid
 7. see error message if email is valid

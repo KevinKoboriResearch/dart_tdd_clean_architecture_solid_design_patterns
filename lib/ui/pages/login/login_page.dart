@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../../ui/components/component.dart';
+import '../../components/component.dart';
+
+import 'login_presenter.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key key}) : super(key: key);
+  final LoginPresenter presenter;
+
+  const LoginPage({this.presenter});
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +35,8 @@ class LoginPage extends StatelessWidget {
                         ),
                         // errorText: 'error',
                       ),
-                    
                       keyboardType: TextInputType.emailAddress,
+                      onChanged: presenter.validateEmail,
                     ),
                     SizedBox(height: 8),
                     TextFormField(
