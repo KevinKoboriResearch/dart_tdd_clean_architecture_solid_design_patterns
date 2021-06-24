@@ -13,15 +13,19 @@ void main() {
   LoginPresenter presenter;
   StreamController<String> emailErrorController;
   StreamController<String> passwordErrorController;
+  StreamController<bool> isFormValidController;
 
   Future<void> loadPage(WidgetTester tester) async {
     presenter = LoginPresenterSpy();
     emailErrorController = StreamController<String>();
     passwordErrorController = StreamController<String>();
+    isFormValidController = StreamController<bool>();
     when(presenter.emailErrorStream)
         .thenAnswer((_) => emailErrorController.stream);
     when(presenter.passwordErrorStream)
         .thenAnswer((_) => passwordErrorController.stream);
+    when(presenter.isFormValidStream)
+        .thenAnswer((_) => isFormValidController.stream);
     final login = MaterialApp(home: LoginPage(presenter: presenter));
     await tester.pumpWidget(login);
   }
@@ -29,6 +33,7 @@ void main() {
   tearDown(() {
     emailErrorController.close();
     passwordErrorController.close();
+    isFormValidController.close();
   });
 
   testWidgets('should load with correct initial state',
@@ -90,9 +95,10 @@ void main() {
     await tester.pump();
 
     expect(
-        find.descendant(
-            of: find.bySemanticsLabel('Email'), matching: find.byType(Text)),
-        findsOneWidget);
+      find.descendant(
+          of: find.bySemanticsLabel('Email'), matching: find.byType(Text)),
+      findsOneWidget,
+    );
   });
 
   testWidgets('should present no error if email is valid',
@@ -103,9 +109,10 @@ void main() {
     await tester.pump();
 
     expect(
-        find.descendant(
-            of: find.bySemanticsLabel('Email'), matching: find.byType(Text)),
-        findsOneWidget);
+      find.descendant(
+          of: find.bySemanticsLabel('Email'), matching: find.byType(Text)),
+      findsOneWidget,
+    );
   });
 
   testWidgets('should present no error if password is invalid',
@@ -116,5 +123,45 @@ void main() {
     await tester.pump();
 
     expect(find.text('any error'), findsOneWidget);
+  });
+
+  testWidgets('should present no error if password is valid',
+      (WidgetTester tester) async {
+    await loadPage(tester);
+
+    passwordErrorController.add(null);
+    await tester.pump();
+
+    expect(
+      find.descendant(
+          of: find.bySemanticsLabel('Senha'), matching: find.byType(Text)),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('should present no error if password is valid',
+      (WidgetTester tester) async {
+    await loadPage(tester);
+
+    passwordErrorController.add('');
+    await tester.pump();
+
+    expect(
+      find.descendant(
+          of: find.bySemanticsLabel('Senha'), matching: find.byType(Text)),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('should enable button if form is valid',
+      (WidgetTester tester) async {
+    await loadPage(tester);
+
+    isFormValidController.add(true);
+    await tester.pump();
+
+    final button = tester.widget<RaisedButton>(find.byType(RaisedButton));
+
+    expect(button.onPressed, isNotNull);
   });
 }
