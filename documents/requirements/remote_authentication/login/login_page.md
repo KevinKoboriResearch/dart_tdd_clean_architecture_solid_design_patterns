@@ -9,8 +9,8 @@
 6. ✅ Remove error message if email is valid
 7. ✅ Validate password when user enters field
 8. ✅ Show error message if password is invalid
-9. Remove error message if password is invalid
-10. Enable login button if all fields are valid
+9. ✅ Remove error message if password is invalid
+10. ✅ Enable login button if all fields are valid
 11. Disable the login button if any field is invalid
 12. Display loading at start of login action
 13. Authenticate user with email and password provided in the form
