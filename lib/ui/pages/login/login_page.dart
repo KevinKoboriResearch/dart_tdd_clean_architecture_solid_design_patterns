@@ -48,6 +48,7 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                       obscureText: true,
+                      onChanged: presenter.validatePassword,
                     ),
                     SizedBox(height: 32),
                     RaisedButton(

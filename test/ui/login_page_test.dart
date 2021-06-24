@@ -51,5 +51,9 @@ void main() {
     await tester.enterText(find.bySemanticsLabel('Email'),
         email); //case sensitive "Email" not "email"
     verify(presenter.validateEmail(email));
+
+    final password = faker.internet.password();
+    await tester.enterText(find.bySemanticsLabel('Senha'), password);
+    verify(presenter.validatePassword(password));
   });
 }
