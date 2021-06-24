@@ -5,7 +5,7 @@
 2. ✅ Login button should start disabled
 3. After typing something in a field, the error message should only go away if the field is valid
 4. ✅ Validate email when user types in field
-5. Show error message if email is invalid
+5. ✅ Show error message if email is invalid
 6. Remove error message if email is valid
 7. ✅ Validate password when user enters field
 8. Show error message if password is invalid
