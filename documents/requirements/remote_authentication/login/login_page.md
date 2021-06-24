@@ -11,13 +11,12 @@
 8. ✅ Show error message if password is invalid
 9. ✅ Remove error message if password is invalid
 10. ✅ Enable login button if all fields are valid
-11. Disable the login button if any field is invalid
+11. ✅ Disable the login button if any field is invalid
 12. Display loading at start of login action
-13. Authenticate user with email and password provided in the form
-14. Play error message if login fails
-15. Write the user's token in the cache to keep them logged in
-16. Redirect user to poll list
-17. Hide loading at end of login action
+13. ✅ call authenticate method
+14. Display error message if login fails
+15. Hide loading at end of login action
+16. Close stream when page is closed
 
 > ## Regras
 1. Os campos devem começar sem exibir mensagem de erro
@@ -32,8 +31,7 @@
 10. Habilitar o botao de fazer login se todos os campos forem validos
 11. Desabilitar o botao de fazer login se algum campo for invalido
 12. Exibir loading no inicio da acao de login
-13. Autenticar usuario com email e senha informados no formulario
-14. Exibir mensagem de erro caso o login falhe
-15. Gravar o token do usuario no cache para manete-lo conectado
-16. Redirecionar o usuario para terla de lista de enquetes
-17. Esconder loading no fim da acao de login
+13. Chamar método de autenticar
+14. Exibir mensagem de erro caso caso o login falhe
+15. Esconder loading no fim da ação de login
+16. Fechar stream quando a página for encerrada
