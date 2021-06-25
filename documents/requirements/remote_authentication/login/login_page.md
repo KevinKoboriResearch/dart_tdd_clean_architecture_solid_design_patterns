@@ -15,7 +15,7 @@
 12. ✅ Display loading at start of login action
 13. ✅ call authenticate method
 14. Display error message if login fails
-15. Hide loading at end of login action
+15. ✅ Hide loading at end of login action
 16. Close stream when page is closed
 
 > ## Regras
