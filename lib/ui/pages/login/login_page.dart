@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'components/components.dart';
 import '../../components/components.dart';
 
+import 'components/components.dart';
 import 'components/password_input.dart';
 import 'login_presenter.dart';
 
@@ -62,18 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                           SizedBox(height: 8),
                           PasswordInput(),
                           SizedBox(height: 32),
-                          StreamBuilder<bool>(
-                              stream: widget.presenter.isFormValidStream,
-                              builder: (context, snapshot) {
-                                return RaisedButton(
-                                  onPressed: snapshot.data == true
-                                      ? widget.presenter.auth
-                                      : null,
-                                  child: Text(
-                                    'Entrar'.toUpperCase(),
-                                  ),
-                                );
-                              }),
+                          LoginButton(),
                           // ElevatedButton(
                           //   onPressed: () {},
                           //   child: Text(
