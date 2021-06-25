@@ -27,18 +27,15 @@ class _LoginPageState extends State<LoginPage> {
         builder: (context) {
           widget.presenter.isLoadingStream.listen((isLoading) {
             if (isLoading) {
-              showLoading(context);
+              showLoading(context: context);
             } else {
-              hideLoading(context);
+              hideLoading(context: context);
             }
           });
 
           widget.presenter.mainErrorStream.listen((error) {
             if (error != null) {
-              Scaffold.of(context).showSnackBar(SnackBar(
-                backgroundColor: Colors.red[900],
-                content: Text(error, textAlign: TextAlign.center),
-              ));
+              showErrorMessage(context: context, error: error);
             }
           });
 
