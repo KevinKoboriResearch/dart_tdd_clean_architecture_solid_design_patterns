@@ -3,7 +3,7 @@
 > ## Roules
 1. ✅ Call Validation when email changes
 2. ✅ Notify EmailErroStream with the same error as Validation if it returns an error
-3. Notify EmailErroStream with null if Validation does not return error
+3. ✅ Notify EmailErroStream with null if Validation does not return error
 4. ✅ Do not notify EmailErroStream if value equals last
 5. ✅ Notify isFormValidValidStream after changing email
 6. ✅ Call Validation when changing password
@@ -11,7 +11,7 @@
 8. ✅ Notify PasswordErroStream with null if Validation does not return error
 9. ✅ Do not notify PasswordErroStream if value equals last
 10. ✅ Notify isFormValidValidStream after changing password
-11. For the form to be valid all error streams must be null and all mandatory fields cannot be empty
+11. ✅ For the form to be valid all error streams must be null and all mandatory fields cannot be empty
 12. ✅ Do not notify isFormValidValidStream if value equals last
 13. Call Authentication with correct email and password
 14. Notify isLoadingStream as true before calling Euthentication
