@@ -14,8 +14,8 @@
 11. ✅ For the form to be valid all error streams must be null and all mandatory fields cannot be empty
 12. ✅ Do not notify isFormValidValidStream if value equals last
 13. ✅ Call Authentication with correct email and password
-14. Notify isLoadingStream as true before calling Euthentication
-15. Notify isLoadingStream with false at the end of Authentication
+14. ✅ Notify isLoadingStream as true before calling Euthentication
+15. ✅ Notify isLoadingStream with false at the end of Authentication
 16. Notify mainErrorStream if Authentication returns a DomainError
 17. Close all Streams in dispose
 18. ⛔️ Write Account to cache on success
