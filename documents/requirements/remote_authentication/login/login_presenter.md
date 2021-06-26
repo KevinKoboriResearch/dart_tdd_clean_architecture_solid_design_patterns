@@ -12,7 +12,7 @@
 9. Do not notify PasswordErroStream if value equals last
 10. Notify isFormValidValidStream after changing password
 11. For the form to be valid all error streams must be null and all mandatory fields cannot be empty
-12. Do not notify isFormValidValidStream if value equals last
+12. ✅ Do not notify isFormValidValidStream if value equals last
 13. Call Authentication with correct email and password
 14. Notify isLoadingStream as true before calling Euthentication
 15. Notify isLoadingStream with false at the end of Authentication
