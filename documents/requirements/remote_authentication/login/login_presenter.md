@@ -3,9 +3,9 @@
 > ## Roules
 1. ✅ Call Validation when email changes
 2. ✅ Notify EmailErroStream with the same error as Validation if it returns an error
-3. ✅ Notify EmailErroStream with null if Validation does not return error
-4. Não notificar o EmailErroStream se o valor for igual ao último
-5. Notify isFormValidValidStream after changing email
+3. Notify EmailErroStream with null if Validation does not return error
+4. ✅ Do not notify EmailErroStream if value equals last
+5. ✅ Notify isFormValidValidStream after changing email
 6. Call Validation when changing password
 7. Notify PasswordErroStream with the same Validation error if it returns an error
 8. Notify PasswordErroStream with null if Validation does not return error
