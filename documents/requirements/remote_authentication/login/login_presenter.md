@@ -8,7 +8,7 @@
 5. ✅ Notify isFormValidValidStream after changing email
 6. ✅ Call Validation when changing password
 7. ✅ Notify PasswordErroStream with the same Validation error if it returns an error
-8. Notify PasswordErroStream with null if Validation does not return error
+8. ✅ Notify PasswordErroStream with null if Validation does not return error
 9. ✅ Do not notify PasswordErroStream if value equals last
 10. ✅ Notify isFormValidValidStream after changing password
 11. For the form to be valid all error streams must be null and all mandatory fields cannot be empty
