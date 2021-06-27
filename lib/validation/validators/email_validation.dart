@@ -1,10 +1,11 @@
-
 import 'package:meta/meta.dart';
 
 import '../dependencies/dependencies.dart';
 
 class EmailValidation implements FieldValidation {
   final String field;
+
+  List get props => [field];
 
   EmailValidation({@required this.field});
 
