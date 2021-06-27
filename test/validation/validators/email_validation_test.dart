@@ -1,3 +1,4 @@
+import 'package:faker/faker.dart';
 import 'package:meta/meta.dart';
 import 'package:test/test.dart';
 
@@ -28,6 +29,14 @@ void main() {
 
   test('Should return null if email is null', () {
     final error = sut.validate(value: null);
+
+    expect(error, null);
+  });
+
+  test('Should return null if email is valid', () {
+    final email = faker.internet.email();
+
+    final error = sut.validate(value: email);
 
     expect(error, null);
   });
