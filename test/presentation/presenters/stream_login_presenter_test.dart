@@ -158,8 +158,8 @@ void main() {
 
     expectLater(sut.isLoadingStream, emits(false));
 
-    sut.mainErrorStream
-        .listen((expectAsync1((error) => expect(error, 'Invalid credentials.'))));
+    sut.mainErrorStream.listen(
+        (expectAsync1((error) => expect(error, 'Invalid credentials.'))));
 
     await sut.auth();
   });
@@ -171,9 +171,16 @@ void main() {
 
     expectLater(sut.isLoadingStream, emits(false));
 
-    sut.mainErrorStream
-        .listen((expectAsync1((error) => expect(error, 'Something wrong ocurred, try again later.'))));
-        
+    sut.mainErrorStream.listen((expectAsync1((error) =>
+        expect(error, 'Something wrong ocurred, try again later.'))));
+
     await sut.auth();
+  });
+
+  test('Should not emit after dispose', () async {
+    expectLater(sut.emailErrorStream, neverEmits(null));
+
+    sut.dispose();
+    sut.validateEmail(email);
   });
 }
