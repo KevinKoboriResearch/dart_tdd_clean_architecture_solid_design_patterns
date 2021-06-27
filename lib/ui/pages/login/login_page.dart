@@ -10,7 +10,7 @@ import 'login_presenter.dart';
 class LoginPage extends StatefulWidget {
   final LoginPresenter presenter;
 
-  const LoginPage({this.presenter});
+  const LoginPage({@required this.presenter});
 
   @override
   _LoginPageState createState() => _LoginPageState();

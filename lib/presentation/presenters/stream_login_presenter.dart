@@ -4,6 +4,7 @@ import 'package:meta/meta.dart';
 
 import '../../domain/helpers/helpers.dart';
 import '../../domain/usecases/usecases.dart';
+import '../../ui/pages/pages.dart';
 
 import '../dependencies/dependencies.dart';
 
@@ -21,7 +22,7 @@ class LoginState {
       passwordError == null;
 }
 
-class StreamLoginPresenter {
+class StreamLoginPresenter implements LoginPresenter {
   final Validation validation;
   final Authentication authentication;
 
@@ -41,7 +42,7 @@ class StreamLoginPresenter {
       _controller?.stream?.map((state) => state.mainError)?.distinct();
 
   StreamLoginPresenter(
-      {@required this.validation, @required this.authentication});
+      {@required this.authentication, @required this.validation});
 
   void _update() => _controller?.add(_state);
 
