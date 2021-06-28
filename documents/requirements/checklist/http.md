@@ -22,3 +22,5 @@
 
 > ## Exception - invalid http verb
 1. ✅ Internal server error - 500
+
+_____________________________________________________________________

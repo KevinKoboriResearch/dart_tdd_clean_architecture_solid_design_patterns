@@ -21,6 +21,8 @@
 18. ⛔️ Write Account to cache on success
 19. ⛔️ Levar o usuário para a tela de enquetes em cas ode sucesso
 
+_____________________________________________________________________
+
 > ## Regras
 1. Chamar Validation ao alterar o email
 2. Notificar o EmailErroStream com o mesmo erro do Validation, caso retorne erro 

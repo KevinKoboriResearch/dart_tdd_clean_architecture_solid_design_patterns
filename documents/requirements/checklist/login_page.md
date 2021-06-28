@@ -18,6 +18,8 @@
 15. ✅ Hide loading at end of login action
 16. ✅ Close stream when page is closed
 
+_____________________________________________________________________
+
 > ## Regras
 1. Os campos devem começar sem exibir mensagem de erro
 2. O botão de fazer login deve começar desabilitado
