@@ -17,6 +17,13 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  void _hideKeyboard() {
+    final currentFocus = FocusScope.of(context);
+    if (!currentFocus.hasPrimaryFocus) {
+      currentFocus.unfocus();
+    }
+  }
+
   @override
   void dispose() {
     super.dispose();
@@ -42,57 +49,60 @@ class _LoginPageState extends State<LoginPage> {
             }
           });
 
-          return SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                LoginHeader(),
-                SizedBox(
-                  height: 32,
-                ),
-                Headline1(text: 'Login'),
-                Padding(
-                  padding: const EdgeInsets.all(32.0),
-                  child: Provider(
-                    create: (_) => widget.presenter,
-                    child: Form(
-                      child: Column(
-                        children: [
-                          EmailInput(),
-                          SizedBox(height: 8),
-                          PasswordInput(),
-                          SizedBox(height: 32),
-                          LoginButton(),
-                          // ElevatedButton(
-                          //   onPressed: () {},
-                          //   child: Text(
-                          //     'Entrar'.toUpperCase(),
-                          //   ),
-                          // ),
-                          FlatButton.icon(
-                            onPressed: () {},
-                            icon: Icon(Icons.person),
-                            label: Text('Criar Conta'),
-                          )
-                          // TextButton(
-                          //   onPressed: () {},
-                          //   child: Row(
-                          //     mainAxisAlignment: MainAxisAlignment.center,
-                          //     children: [
-                          //       Icon(Icons.person),
-                          //       SizedBox(
-                          //         width: 8,
-                          //       ),
-                          //       Text('Criar Conta'),
-                          //     ],
-                          //   ),
-                          // ),
-                        ],
+          return GestureDetector(
+            onTap: _hideKeyboard,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  LoginHeader(),
+                  SizedBox(
+                    height: 32,
+                  ),
+                  Headline1(text: 'Login'),
+                  Padding(
+                    padding: const EdgeInsets.all(32.0),
+                    child: Provider(
+                      create: (_) => widget.presenter,
+                      child: Form(
+                        child: Column(
+                          children: [
+                            EmailInput(),
+                            SizedBox(height: 8),
+                            PasswordInput(),
+                            SizedBox(height: 32),
+                            LoginButton(),
+                            // ElevatedButton(
+                            //   onPressed: () {},
+                            //   child: Text(
+                            //     'Entrar'.toUpperCase(),
+                            //   ),
+                            // ),
+                            FlatButton.icon(
+                              onPressed: () {},
+                              icon: Icon(Icons.person),
+                              label: Text('Criar Conta'),
+                            )
+                            // TextButton(
+                            //   onPressed: () {},
+                            //   child: Row(
+                            //     mainAxisAlignment: MainAxisAlignment.center,
+                            //     children: [
+                            //       Icon(Icons.person),
+                            //       SizedBox(
+                            //         width: 8,
+                            //       ),
+                            //       Text('Criar Conta'),
+                            //     ],
+                            //   ),
+                            // ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           );
         },
