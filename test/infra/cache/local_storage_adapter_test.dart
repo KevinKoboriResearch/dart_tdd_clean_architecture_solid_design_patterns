@@ -1,9 +1,10 @@
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:meta/meta.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
+
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class LocalStorageAdapter {
   final FlutterSecureStorage secureStorage;
