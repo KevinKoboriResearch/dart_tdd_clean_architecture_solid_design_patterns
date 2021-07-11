@@ -22,7 +22,7 @@ void main() {
     secureStorage = FlutterSecureStorageSpy();
     sut = LocalStorageAdapter(secureStorage: secureStorage);
     key = faker.lorem.word();
-    value = faker.guid.guid();
+    value = faker.randomGenerator.string(16);
   });
 
   test('Should call save secure with correct values', () async {

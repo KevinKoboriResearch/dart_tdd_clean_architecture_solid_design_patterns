@@ -18,8 +18,9 @@
 15. ✅ Notify isLoadingStream with false at the end of Authentication
 16. ✅ Notify mainErrorStream if Authentication returns a DomainError
 17. ✅ Close all Streams in dispose
-18. ⛔️ Write Account to cache on success
-19. ⛔️ Levar o usuário para a tela de enquetes em cas ode sucesso
+18. ✅ Write Account to cache on success
+19. ⛔️ Notify mainErrorStream if SaveCurrentAccount returns an error
+20. ⛔️ Take the user to the poll screen in case of success
 
 _____________________________________________________________________
 
@@ -42,4 +43,5 @@ _____________________________________________________________________
 16. Notificar o mainErrorStream caso o Authentication retorne  um DomainError
 17. Fechar todos os Streams no dispose
 18. ⛔️ Gravar o Account no cache em caso de sucesso
-19. ⛔️ Levar o usuário para a tela de enquetes em cas ode sucesso
+19. ⛔️ Notificar o mainErrorStream caso o SaveCurrentAccount retorne erro
+20. ⛔️ Levar o usuário para a tela de enquetes em cas ode sucesso
